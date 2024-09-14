@@ -1,0 +1,22 @@
+To compile on board not running under RaspiOS:
+
+Tested under Armbian 24.8.2 jammy on BananaPI M1
+
+1. get lclient library
+git clone https://github.com/raspberrypi/userland.git
+cd userland/
+./buildme
+
+2. Fix memory include
+add 
+
+#include <memory> 
+
+in the headers of /home/lionel/BerryShare/src/media_player.h
+
+3. Link errors regarding fmt libs like "undefined reference to `fmt::v8::detail::assert_fail"
+
+fmt libs is not included in link steps
+edit src/CMakeFiles/berry-share.dir/link.txt
+and add "-lfmt" at the end of command
+
