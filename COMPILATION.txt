@@ -20,3 +20,6 @@ fmt libs is not included in link steps
 edit src/CMakeFiles/berry-share.dir/link.txt
 and add "-lfmt" at the end of command
 
+
+==> CAN'T WORK ON NON-RASPIOS BECAUSE /dev/vchiq IS MISSING
+
